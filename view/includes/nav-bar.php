@@ -32,74 +32,29 @@
                     <li class="active"><a href="index.php">Home</a>
                     </li>
                     <li class="dropdown yamm-fw">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Men <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Phones <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
                                 <div class="yamm-content">
                                     <div class="row">
                                         <div class="col-sm-3">
-                                            <h5>Clothing</h5>
+                                            <h5>Phones</h5>
                                             <ul>
-                                                <li><a href="category.php">T-shirts</a>
+                                                <?php $phones = $category->getCategoriesUnder('Phone'); foreach($phones as $phone){ ?>
+                                                <li><a href="category.php"><?php echo $phone['category_name']; ?></a>
                                                 </li>
-                                                <li><a href="category.php">Shirts</a>
-                                                </li>
-                                                <li><a href="category.php">Pants</a>
-                                                </li>
-                                                <li><a href="category.php">Accessories</a>
-                                                </li>
+                                                <?php } ?>
                                             </ul>
                                         </div>
+                                        <?php $banners = $products->getRandomProductsForNavbar('Phone'); foreach($banners as $banner){ ?>
                                         <div class="col-sm-3">
-                                            <h5>Shoes</h5>
-                                            <ul>
-                                                <li><a href="category.php">Trainers</a>
-                                                </li>
-                                                <li><a href="category.php">Sandals</a>
-                                                </li>
-                                                <li><a href="category.php">Hiking shoes</a>
-                                                </li>
-                                                <li><a href="category.php">Casual</a>
-                                                </li>
-                                            </ul>
+                                            <div class="banner">
+                                                <a href="../index.php?action=Product details&key=<?php echo $banner['product_key']; ?>&location=detail">
+                                                    <img style="height: 170px;" src="images/<?php echo $banner['product_key']; ?>" class="img img-responsive" alt="">
+                                                </a>
+                                            </div>
                                         </div>
-                                        <div class="col-sm-3">
-                                            <h5>Accessories</h5>
-                                            <ul>
-                                                <li><a href="category.php">Trainers</a>
-                                                </li>
-                                                <li><a href="category.php">Sandals</a>
-                                                </li>
-                                                <li><a href="category.php">Hiking shoes</a>
-                                                </li>
-                                                <li><a href="category.php">Casual</a>
-                                                </li>
-                                                <li><a href="category.php">Hiking shoes</a>
-                                                </li>
-                                                <li><a href="category.php">Casual</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <h5>Featured</h5>
-                                            <ul>
-                                                <li><a href="category.php">Trainers</a>
-                                                </li>
-                                                <li><a href="category.php">Sandals</a>
-                                                </li>
-                                                <li><a href="category.php">Hiking shoes</a>
-                                                </li>
-                                            </ul>
-                                            <h5>Looks and trends</h5>
-                                            <ul>
-                                                <li><a href="category.php">Trainers</a>
-                                                </li>
-                                                <li><a href="category.php">Sandals</a>
-                                                </li>
-                                                <li><a href="category.php">Hiking shoes</a>
-                                                </li>
-                                            </ul>
-                                        </div>
+                                        <?php } ?>
                                     </div>
                                 </div>
                                 <!-- /.yamm-content -->
@@ -108,75 +63,29 @@
                     </li>
 
                     <li class="dropdown yamm-fw">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Ladies <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">PCs <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
                                 <div class="yamm-content">
                                     <div class="row">
                                         <div class="col-sm-3">
-                                            <h5>Clothing</h5>
+                                            <h5>PCs</h5>
                                             <ul>
-                                                <li><a href="category.php">T-shirts</a>
+                                                <?php $PCs = $category->getCategoriesUnder('PC'); foreach($PCs as $PC){ ?>
+                                                <li><a href="category.php"><?php echo $PC['category_name']; ?></a>
                                                 </li>
-                                                <li><a href="category.php">Shirts</a>
-                                                </li>
-                                                <li><a href="category.php">Pants</a>
-                                                </li>
-                                                <li><a href="category.php">Accessories</a>
-                                                </li>
+                                                <?php } ?>
                                             </ul>
                                         </div>
-                                        <div class="col-sm-3">
-                                            <h5>Shoes</h5>
-                                            <ul>
-                                                <li><a href="category.php">Trainers</a>
-                                                </li>
-                                                <li><a href="category.php">Sandals</a>
-                                                </li>
-                                                <li><a href="category.php">Hiking shoes</a>
-                                                </li>
-                                                <li><a href="category.php">Casual</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <h5>Accessories</h5>
-                                            <ul>
-                                                <li><a href="category.php">Trainers</a>
-                                                </li>
-                                                <li><a href="category.php">Sandals</a>
-                                                </li>
-                                                <li><a href="category.php">Hiking shoes</a>
-                                                </li>
-                                                <li><a href="category.php">Casual</a>
-                                                </li>
-                                                <li><a href="category.php">Hiking shoes</a>
-                                                </li>
-                                                <li><a href="category.php">Casual</a>
-                                                </li>
-                                            </ul>
-                                            <h5>Looks and trends</h5>
-                                            <ul>
-                                                <li><a href="category.php">Trainers</a>
-                                                </li>
-                                                <li><a href="category.php">Sandals</a>
-                                                </li>
-                                                <li><a href="category.php">Hiking shoes</a>
-                                                </li>
-                                            </ul>
-                                        </div>
+                                        <?php $banners = $products->getRandomProductsForNavbar('PC'); foreach($banners as $banner){ ?>
                                         <div class="col-sm-3">
                                             <div class="banner">
-                                                <a href="#">
-                                                    <img src="img/banner.jpg" class="img img-responsive" alt="">
-                                                </a>
-                                            </div>
-                                            <div class="banner">
-                                                <a href="#">
-                                                    <img src="img/banner2.jpg" class="img img-responsive" alt="">
+                                                <a href="../index.php?action=Product details&key=<?php echo $banner['product_key']; ?>&location=detail">
+                                                    <img style="height: 170px;" src="images/<?php echo $banner['product_key']; ?>" class="img img-responsive" alt="">
                                                 </a>
                                             </div>
                                         </div>
+                                        <?php } ?>
                                     </div>
                                 </div>
                                 <!-- /.yamm-content -->
@@ -195,11 +104,11 @@
                                             <ul>
                                                 <li><a href="index.php">Homepage</a>
                                                 </li>
-                                                <li><a href="category.php">Category - sidebar left</a>
+                                                <li><a href="../index.php?action=Sidebar-left">Category - sidebar left</a>
                                                 </li>
-                                                <li><a href="category-right.php">Category - sidebar right</a>
+                                                <li><a href="../index.php?action=Sidebar-right">Category - sidebar right</a>
                                                 </li>
-                                                <li><a href="category-full.php">Category - full width</a>
+                                                <li><a href="../index.php?action=Sidebar-full">Category - full width</a>
                                                 </li>
                                                 <li><a href="detail.php">Product detail</a>
                                                 </li>
@@ -271,7 +180,7 @@
                                             <!--Here i used str_replace function to replace some part of the long url of the current page generated by $_SERVER['PHP_SELF']
                                                 (i.e the /obaju/view/) with nothing, this has no technical backing tho but since it going to be a get request then the url 
                                                 should look good on the eye. Afterwards, i replaced the .php extention with nothing as well.  -->
-                    <a href="../index.php?action=Basket&prev=<?php $_url = str_replace('/obaju/view/', '', $_SERVER['PHP_SELF']); echo $_url = str_replace('.php', '', $_url); ?>" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm"><?php if(isset($_SESSION['count_cart'])){ if($_SESSION['count_cart'] === 0 ){ echo 'No item in cart'; }elseif($_SESSION['count_cart'] === 1){ echo '1 item in cart'; }else{ echo $_SESSION['count_cart'] . ' items in cart'; }} ?></span></a>
+                    <a href="../index.php?action=Basket&prev=<?php $_url = str_replace('/The-Agora/view/', '', $_SERVER['PHP_SELF']); echo $_url = str_replace('.php', '', $_url); ?>" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm"><?php if(isset($_SESSION['count_cart'])){ if($_SESSION['count_cart'] === 0 ){ echo 'No item in cart'; }elseif($_SESSION['count_cart'] === 1){ echo '1 item in cart'; }else{ echo $_SESSION['count_cart'] . ' items in cart'; }} ?></span></a>
                 </div>
                 <!--/.nav-collapse -->
 
