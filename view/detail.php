@@ -175,7 +175,7 @@ include_once "../models/catelog_model.php";
                         </div>
                         <div class="col-sm-6">
                             <div class="box">
-                                <h1 class="text-center"><?php echo $product['product_name']; ?></h1>
+                                <h1 class="text-center"><?php echo ucwords($product['product_name']); ?></h1>
                                 <p class="goToDescription"><a href="#details" class="scroll-to">Scroll to product details, material & care and sizing</a>
                                 </p>
                                 <p class="price">N<?php echo number_format($product['product_price']); ?></p>
@@ -222,188 +222,92 @@ include_once "../models/catelog_model.php";
                     </div>
 
                     <div class="row same-height-row">
-                        <div class="col-md-3 col-sm-6">
-                            <div class="box same-height">
-                                <h3>You may also like these products</h3>
+                        <div class="box" style="width: 101%; margin-left: 15px;">
+                            <div class="container">
+                                <div class="col-md-12">
+                                    <h2 style="padding-left: 255px; color:#4fbfa8;">You may also like</h2>
+                                </div>
                             </div>
                         </div>
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="product same-height">
-                                <div class="flip-container">
-                                    <div class="flipper">
-                                        <div class="front">
-                                            <a href="detail.php">
-                                                <img src="img/product2.jpg" alt="" class="img-responsive">
-                                            </a>
+                        <div class="container">
+                            <div class="product-slider">
+                            <?php if(isset($_SESSION['you_may_also_like_these'])){$products = $_SESSION['you_may_also_like_these'];foreach($products as $product){?>
+                                <div class="item">
+                                    <div class="product" style="width: 180px;">
+                                        <div class="flip-container">
+                                            <div class="flipper">
+                                                <div class="front">
+                                                    <a href="../index.php?action=Product details&key=<?php echo $product['product_key'];?>&location=detail">
+                                                        <img style="height: 150px;" src="images/<?php echo $product['product_key']; ?>" alt="" class="img-responsive center">
+                                                    </a>
+                                                </div>
+                                                <div class="back">
+                                                    <a href="../index.php?action=Product details&key=<?php echo $product['product_key'];?>&location=detail">
+                                                        <img style="height: 150px;" src="images/<?php echo $product['product_key']; ?>" alt="" class="img-responsive center">
+                                                    </a>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="back">
-                                            <a href="detail.php">
-                                                <img src="img/product2_2.jpg" alt="" class="img-responsive">
-                                            </a>
+                                        <a href="../index.php?action=Product details&key=<?php echo $product['product_key'];?>&location=detail" class="invisible">
+                                            <img src="img/product1.jpg" alt="" class="img-responsive">
+                                        </a>
+                                        <div class="text">
+                                            <h3><a href="../index.php?action=Product details&key=<?php echo $product['product_key'];?>&location=detail"><?php echo ucwords($product['product_name']); ?></a></h3>
+                                            <p class="price">N<?php echo $product['product_price']; ?></p>
                                         </div>
+                                        <!-- /.text -->
                                     </div>
+                                    <!-- /.product -->
                                 </div>
-                                <a href="detail.php" class="invisible">
-                                    <img src="img/product2.jpg" alt="" class="img-responsive">
-                                </a>
-                                <div class="text">
-                                    <h3>Fur coat</h3>
-                                    <p class="price">$143</p>
-                                </div>
-                            </div>
-                            <!-- /.product -->
-                        </div>
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="product same-height">
-                                <div class="flip-container">
-                                    <div class="flipper">
-                                        <div class="front">
-                                            <a href="detail.php">
-                                                <img src="img/product1.jpg" alt="" class="img-responsive">
-                                            </a>
-                                        </div>
-                                        <div class="back">
-                                            <a href="detail.php">
-                                                <img src="img/product1_2.jpg" alt="" class="img-responsive">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <a href="detail.php" class="invisible">
-                                    <img src="img/product1.jpg" alt="" class="img-responsive">
-                                </a>
-                                <div class="text">
-                                    <h3>Fur coat</h3>
-                                    <p class="price">$143</p>
-                                </div>
-                            </div>
-                            <!-- /.product -->
-                        </div>
-
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="product same-height">
-                                <div class="flip-container">
-                                    <div class="flipper">
-                                        <div class="front">
-                                            <a href="detail.php">
-                                                <img src="img/product3.jpg" alt="" class="img-responsive">
-                                            </a>
-                                        </div>
-                                        <div class="back">
-                                            <a href="detail.php">
-                                                <img src="img/product3_2.jpg" alt="" class="img-responsive">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <a href="detail.php" class="invisible">
-                                    <img src="img/product3.jpg" alt="" class="img-responsive">
-                                </a>
-                                <div class="text">
-                                    <h3>Fur coat</h3>
-                                    <p class="price">$143</p>
-
-                                </div>
-                            </div>
-                            <!-- /.product -->
-                        </div>
-
+                            <?php }}?>
+                            </div> 
+                    <!-- /.product-slider -->
+                    </div>
                     </div>
 
                     <div class="row same-height-row">
-                        <div class="col-md-3 col-sm-6">
-                            <div class="box same-height">
-                                <h3>Products viewed recently</h3>
+                         <div class="box" style="width: 101%; margin-left: 15px;">
+                            <div class="container">
+                                <div class="col-md-12">
+                                    <h2 style="padding-left: 255px; color:#4fbfa8;">You recently viewed</h2>
+                                </div>
                             </div>
                         </div>
-
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="product same-height">
-                                <div class="flip-container">
-                                    <div class="flipper">
-                                        <div class="front">
-                                            <a href="detail.php">
-                                                <img src="img/product2.jpg" alt="" class="img-responsive">
-                                            </a>
+                        <div class="container">
+                            <div class="product-slider">
+                            <?php if(isset($_SESSION['you_recently_viewed'])){$products = $_SESSION['you_recently_viewed'];foreach(array_slice($products, count($products) - 4, 4) as $product){?>
+                                <div class="item">
+                                    <div class="product" style="width: 180px;">
+                                        <div class="flip-container">
+                                            <div class="flipper">
+                                                <div class="front">
+                                                    <a href="../index.php?action=Product details&key=<?php echo $product['product_key'];?>&location=detail">
+                                                        <img style="height: 150px; width: 227px;" src="images/<?php echo $product['product_key']; ?>" alt="" class="img-responsive center">
+                                                    </a>
+                                                </div>
+                                                <div class="back">
+                                                    <a href="../index.php?action=Product details&key=<?php echo $product['product_key'];?>&location=detail">
+                                                        <img style="height: 150px; width: 227px;" src="images/<?php echo $product['product_key']; ?>" alt="" class="img-responsive center">
+                                                    </a>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="back">
-                                            <a href="detail.php">
-                                                <img src="img/product2_2.jpg" alt="" class="img-responsive">
-                                            </a>
+                                        <a href="../index.php?action=Product details&key=<?php echo $product['product_key'];?>&location=detail" class="invisible">
+                                            <img src="img/product1.jpg" alt="" class="img-responsive">
+                                        </a>
+                                        <div class="text">
+                                            <h3><a href="../index.php?action=Product details&key=<?php echo $product['product_key'];?>&location=detail"><?php echo ucwords($product['product_name']); ?></a></h3>
+                                            <p class="price">N<?php echo $product['product_price']; ?></p>
                                         </div>
+                                        <!-- /.text -->
                                     </div>
+                                    <!-- /.product -->
                                 </div>
-                                <a href="detail.php" class="invisible">
-                                    <img src="img/product2.jpg" alt="" class="img-responsive">
-                                </a>
-                                <div class="text">
-                                    <h3>Fur coat</h3>
-                                    <p class="price">$143</p>
-                                </div>
-                            </div>
-                            <!-- /.product -->
-                        </div>
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="product same-height">
-                                <div class="flip-container">
-                                    <div class="flipper">
-                                        <div class="front">
-                                            <a href="detail.php">
-                                                <img src="img/product1.jpg" alt="" class="img-responsive">
-                                            </a>
-                                        </div>
-                                        <div class="back">
-                                            <a href="detail.php">
-                                                <img src="img/product1_2.jpg" alt="" class="img-responsive">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <a href="detail.php" class="invisible">
-                                    <img src="img/product1.jpg" alt="" class="img-responsive">
-                                </a>
-                                <div class="text">
-                                    <h3>Fur coat</h3>
-                                    <p class="price">$143</p>
-                                </div>
-                            </div>
-                            <!-- /.product -->
-                        </div>
-
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="product same-height">
-                                <div class="flip-container">
-                                    <div class="flipper">
-                                        <div class="front">
-                                            <a href="detail.php">
-                                                <img src="img/product3.jpg" alt="" class="img-responsive">
-                                            </a>
-                                        </div>
-                                        <div class="back">
-                                            <a href="detail.php">
-                                                <img src="img/product3_2.jpg" alt="" class="img-responsive">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <a href="detail.php" class="invisible">
-                                    <img src="img/product3.jpg" alt="" class="img-responsive">
-                                </a>
-                                <div class="text">
-                                    <h3>Fur coat</h3>
-                                    <p class="price">$143</p>
-
-                                </div>
-                            </div>
-                            <!-- /.product -->
-                        </div>
-
+                            <?php }}?>
+                            </div> 
+                    <!-- /.product-slider -->
+                    </div>
+                    </div>
                     </div>
 
                 </div>
