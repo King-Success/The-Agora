@@ -64,7 +64,7 @@
 
                             <div class="box-footer">
                                 <div class="pull-left">
-                                    <a href="<?php if(isset($_SESSION['prev_url_to_continue_shoping_from_basket'])){ echo '/obaju/view/'. $_SESSION['prev_url_to_continue_shoping_from_basket'] . '.php';} ?>" class="btn btn-default"><i class="fa fa-chevron-left"></i> Continue shopping</a>
+                                    <a href="<?php if(isset($_SESSION['prev_url_to_continue_shoping_from_basket'])){ echo '/The-Agora/view/'. $_SESSION['prev_url_to_continue_shoping_from_basket'] . '.php';} ?>" class="btn btn-default"><i class="fa fa-chevron-left"></i> Continue shopping</a>
                                 </div>
                                 <div class="pull-right">
                                     <button class="btn btn-default"><i class="fa fa-refresh"></i> Update basket</button>
