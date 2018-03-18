@@ -1,4 +1,10 @@
-<?php session_start();?>
+<?php session_start();
+include_once "../models/database.php";
+include_once "../models/category_model.php";
+include_once "../models/product_model.php";
+include_once "../models/user_model.php";
+include_once "../models/catelog_model.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
